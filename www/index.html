@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World Rule Tetris by Rust Wasm</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet"> -->
+    <link href="./style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <canvas id="field-canvas"></canvas>
+    <div class="for-pc-wrapper">
+      <table id="controll-help">
+        <tr>
+          <td>移動</td><td>十字キー</td>
+        </tr>
+        <tr>
+          <td>A回転</td><td>Zキーorスペース</td>
+        </tr>
+        <tr>
+          <td>B回転</td><td>Xキー</td>
+        </tr>
+        <tr>
+          <td>ハードドロップ</td><td>十字キー上</td>
+        </tr>
+        <tr>
+          <td>ホールド</td><td>左Shift</td>
+        </tr>
+      </table>
+      <br />
+      <div id="fps"></div>
+    </div>
+    <script>
+      function rand_gen_js() {
+          return Math.round( Math.random()*100 );
+      }
+    </script>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>

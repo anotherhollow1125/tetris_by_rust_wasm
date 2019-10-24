@@ -1,0 +1,6 @@
+このあたりのファイルについては
+For about files in the directry, you can use th below url as the reference.
+
+https://rustwasm.github.io/docs/book/game-of-life/introduction.html
+
+を参照されたし

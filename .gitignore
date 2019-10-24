@@ -4,3 +4,8 @@ Cargo.lock
 bin/
 pkg/
 wasm-pack.log
+/www/*
+!/www/index.html
+!/www/index.js
+!/www/style.css
+!/www/memo.txt
