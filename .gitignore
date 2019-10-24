@@ -9,3 +9,4 @@ wasm-pack.log
 !/www/index.js
 !/www/style.css
 !/www/memo.txt
+!/www/bootstrap.js
