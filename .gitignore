@@ -4,6 +4,9 @@ Cargo.lock
 bin/
 pkg/
 wasm-pack.log
+.firebaserc
+.firebase/
+firebase.json
 /www/*
 !/www/index.html
 !/www/index.js

@@ -169,14 +169,14 @@ const draw = () => {
     // A
     ctx.beginPath();
     ctx.fillStyle = raw_controller[0] > 0 ? "#000000" : "#FFFFFF";
-    ctx.moveTo(240, 435);
-    ctx.arc(255, 435, 15, 0, 2*Math.PI, true);
+    ctx.moveTo(231, 435);
+    ctx.arc(255, 435, 24, 0, 2*Math.PI, true);
     ctx.fill();
     // B
     ctx.beginPath();
     ctx.fillStyle = raw_controller[1] > 0 ? "#000000" : "#FFFFFF";
-    ctx.moveTo(170, 466);
-    ctx.arc(185, 466, 15, 0, 2*Math.PI, true);
+    ctx.moveTo(161, 466);
+    ctx.arc(185, 466, 24, 0, 2*Math.PI, true);
     ctx.fill();
 
     // ↑
@@ -213,18 +213,18 @@ const update_controller = () => {
     }
 };
 
-const buttonDownFunc = event => {
+const buttonDownFunc = (tx, ty) => {
     const boundingRect = canvas.getBoundingClientRect();
 
     const scaleX = canvas.width / boundingRect.width;
     const scaleY = canvas.height / boundingRect.height;
 
-    const x = (event.clientX - boundingRect.left) * scaleX;
-    const y = (event.clientY - boundingRect.top) * scaleY;
+    const x = (tx - boundingRect.left) * scaleX;
+    const y = (ty - boundingRect.top) * scaleY;
 
-    if ((x-255)**2+(y-435)**2 <= 225) {
+    if ((x-255)**2+(y-435)**2 <= 576) {
         if (raw_controller[0] == 0) raw_controller[0] = 1;
-    } else if ((x-185)**2+(y-466)**2 <= 225) {
+    } else if ((x-185)**2+(y-466)**2 <= 576) {
         if (raw_controller[1] == 0) raw_controller[1] = 1;
     } else if (60 <= x && x < 90 && 405 <= y && y < 435) {
         if (raw_controller[2] == 0) raw_controller[2] = 1;
@@ -240,14 +240,21 @@ const buttonDownFunc = event => {
 };
 
 const buttonUpFunc = event => {
+    event.preventDefault();
     for (let i = 0; i < 7; i++) raw_controller[i] = 0;
 };
 
-document.addEventListener('touchmove', e => {e.preventDefault();}, {passive: false});
-canvas.addEventListener("mousedown", buttonDownFunc, false);
-canvas.addEventListener("touchdown", buttonDownFunc, false);
+canvas.addEventListener('touchmove', e => {e.preventDefault();}, {passive: false});
+canvas.addEventListener("mousedown", e => {
+    event.preventDefault();
+    buttonDownFunc(e.clientX, e.clientY);
+}, false);
+canvas.addEventListener("touchstart", e => {
+    event.preventDefault();
+    buttonDownFunc(e.touches[0].clientX, e.touches[0].clientY);
+}, false);
 canvas.addEventListener("mouseup", buttonUpFunc, false);
-canvas.addEventListener("touchup", buttonUpFunc, false);
+canvas.addEventListener("touchend", buttonUpFunc, false);
 
 document.addEventListener("keydown", event => {
     const k = event.keyCode;
@@ -311,11 +318,11 @@ const main = () => {
     ctx.closePath();
 
     // A
-    ctx.moveTo(169, 466);
-    ctx.arc(185, 466, 16, 0, 2*Math.PI, true);
+    ctx.moveTo(160, 466);
+    ctx.arc(185, 466, 25, 0, 2*Math.PI, true);
     // B
-    ctx.moveTo(239, 435);
-    ctx.arc(255, 435, 16, 0, 2*Math.PI, true);
+    ctx.moveTo(230, 435);
+    ctx.arc(255, 435, 25, 0, 2*Math.PI, true);
 
     ctx.stroke();
 
