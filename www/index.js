@@ -181,19 +181,19 @@ const draw = () => {
 
     // ↑
     ctx.fillStyle = raw_controller[2] > 0 ? "#000000" : "#FFFFFF";
-    ctx.fillRect(60, 405, 30, 30);
+    ctx.fillRect(50, 375, 40, 40);
 
     // ↓
     ctx.fillStyle = raw_controller[3] > 0 ? "#000000" : "#FFFFFF";
-    ctx.fillRect(60, 467, 30, 30);
+    ctx.fillRect(50, 457, 40, 40);
 
     // →
     ctx.fillStyle = raw_controller[4] > 0 ? "#000000" : "#FFFFFF";
-    ctx.fillRect(91, 436, 30, 30);
+    ctx.fillRect(90, 416, 40, 40);
 
     // ←
     ctx.fillStyle = raw_controller[5] > 0 ? "#000000" : "#FFFFFF";
-    ctx.fillRect(29, 436, 30, 30);
+    ctx.fillRect(9, 416, 40, 40);
 };
 
 const update_controller = () => {
@@ -226,13 +226,13 @@ const buttonDownFunc = (tx, ty) => {
         if (raw_controller[0] == 0) raw_controller[0] = 1;
     } else if ((x-185)**2+(y-466)**2 <= 576) {
         if (raw_controller[1] == 0) raw_controller[1] = 1;
-    } else if (60 <= x && x < 90 && 405 <= y && y < 435) {
+    } else if (50 <= x && x < 90 && 375 <= y && y < 415) { // ↑
         if (raw_controller[2] == 0) raw_controller[2] = 1;
-    } else if (60 <= x && x < 90 && 467 <= y && y < 497) {
+    } else if (50 <= x && x < 90 && 457 <= y && y < 497) { // ↓
         if (raw_controller[3] == 0) raw_controller[3] = 1;
-    } else if (91 <= x && x < 121 && 436 <= y && y < 466) {
+    } else if (91 <= x && x < 131 && 416 <= y && y < 456) { // →
         if (raw_controller[4] == 0) raw_controller[4] = 1;
-    } else if (29 <= x && x < 59 && 436 <= y && y < 466) {
+    } else if (9 <= x && x < 49 && 416 <= y && y < 456) { // ←
         if (raw_controller[5] == 0) raw_controller[5] = 1;
     } else if (10 <= x && x <= 70 && 80 <= y && y <= 140) {
         if (raw_controller[6] == 0) raw_controller[6] = 1;
@@ -303,18 +303,18 @@ const main = () => {
 
     // 十
     ctx.beginPath();
-    ctx.moveTo( 59, 404);
-    ctx.lineTo( 59, 435);
-    ctx.lineTo( 28, 435);
-    ctx.lineTo( 28, 466);
-    ctx.lineTo( 59, 466);
-    ctx.lineTo( 59, 497);
+    ctx.moveTo( 49, 374);
+    ctx.lineTo( 49, 415);
+    ctx.lineTo(  8, 415);
+    ctx.lineTo(  8, 456);
+    ctx.lineTo( 49, 456);
+    ctx.lineTo( 49, 497);
     ctx.lineTo( 90, 497);
-    ctx.lineTo( 90, 466);
-    ctx.lineTo(121, 466);
-    ctx.lineTo(121, 435);
-    ctx.lineTo( 90, 435);
-    ctx.lineTo( 90, 404);
+    ctx.lineTo( 90, 456);
+    ctx.lineTo(131, 456);
+    ctx.lineTo(131, 415);
+    ctx.lineTo( 90, 415);
+    ctx.lineTo( 90, 374);
     ctx.closePath();
 
     // A
